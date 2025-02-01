@@ -1,0 +1,13 @@
+What is SSRF?
+SSRF is When we access internal server through a vulnareable prameter which is used to communicate to the microservices or api's
+
+For example:
+a web app sends the request with parameter:
+"STOCKAPI = http://shop.com/product/stock/..."
+now we can easily remove the website and put "localhost" to access internal server like:
+"STOCKAPI = http://localhost/admin"
+
+IMPACTS:
+Internal network scanning (port scanning)
+Remote code execution (RCE)
+Application level DDOS attack
