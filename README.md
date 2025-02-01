@@ -111,9 +111,9 @@
 - Study top 10 SSRF bug bounty reports.
 - Solve CTF challenges related to SSRF.
 
-🗓️ Week 3: SSRF Automation, API Exploitation & Real-World Targets
+## 🗓️ Week 3: SSRF Automation, API Exploitation & Real-World Targets
 
-🎯 Goal: Automate SSRF detection and exploit real-world web applications.
+###🎯 Goal: Automate SSRF detection and exploit real-world web applications.
 
 **📌 Day 15: Automating SSRF Scanning**
 
@@ -150,9 +150,9 @@
 - Solve Hack The Box & TryHackMe SSRF challenges.
 - Start hunting SSRF bugs in bug bounty programs.
 
-🗓️ Week 4: Mastering SSRF & Advanced Real-World Exploitation
+## 🗓️ Week 4: Mastering SSRF & Advanced Real-World Exploitation
 
-🎯 Goal: Finalize expertise, submit bug bounty reports, and automate findings.
+### 🎯 Goal: Finalize expertise, submit bug bounty reports, and automate findings.
 
 **📌 Day 22: Finding Zero-Day SSRF**
 
