@@ -56,115 +56,142 @@ How to Master SSRF?
 
 📌 Day 6: Automating Basic SSRF Attacks
 
-Use Burp Suite Repeater to test SSRF.
-Experiment with FFUF to fuzz URL-based parameters for SSRF.
+- Use Burp Suite Repeater to test SSRF.
+- Experiment with FFUF to fuzz URL-based parameters for SSRF.
+
 📌 Day 7: Review & Practice
 
-Revise what you’ve learned.
-Solve PortSwigger SSRF labs.
+- Revise what you’ve learned.
+- Solve PortSwigger SSRF labs.
+
 🗓️ Week 2: Advanced SSRF Techniques & Cloud Exploitation
+
 🎯 Goal: Learn blind SSRF, bypass protections, and exploit cloud metadata services.
 
 📌 Day 8: Blind SSRF (bSSRF) Basics
 
-What is Blind SSRF? Why is it more dangerous?
-Use Burp Collaborator & interact.sh to detect bSSRF.
-Learn exfiltrating data via DNS/HTTP out-of-band (OOB) techniques.
+- What is Blind SSRF? Why is it more dangerous?
+- Use Burp Collaborator & interact.sh to detect bSSRF.
+- Learn exfiltrating data via DNS/HTTP out-of-band (OOB) techniques.
+
 📌 Day 9: Exploiting AWS, GCP & Azure Metadata Services
 
-Learn cloud-based SSRF attacks:
-AWS: http://169.254.169.254/latest/meta-data/
-Google Cloud: http://metadata.google.internal/computeMetadata/v1/
-Azure: http://169.254.169.254/metadata/instance?api-version=2021-01-01
-Read HackerOne AWS SSRF reports ($30K+ payouts).
+- Learn cloud-based SSRF attacks:
+- AWS: http://169.254.169.254/latest/meta-data/
+- Google Cloud: http://metadata.google.internal/computeMetadata/v1/
+- Azure: http://169.254.169.254/metadata/instance?api-version=2021-01-01
+- Read HackerOne AWS SSRF reports ($30K+ payouts).
+
 📌 Day 10: Testing for Cloud-Based SSRF
 
-Use Postman & curl to test SSRF on metadata endpoints.
-Learn stealing AWS IAM credentials via SSRF.
+- Use Postman & curl to test SSRF on metadata endpoints.
+- Learn stealing AWS IAM credentials via SSRF.
+
 📌 Day 11: Bypassing SSRF Protections
 
-Common SSRF filters (deny-list, regex, IP restrictions).
-Bypass techniques:
-DNS Rebinding (evil.com → 127.0.0.1).
-Using IPv6 ([::] instead of localhost).
-Using Alternate Encodings (0x7F000001 for 127.0.0.1).
+- Common SSRF filters (deny-list, regex, IP restrictions).
+- Bypass techniques:
+- DNS Rebinding (evil.com → 127.0.0.1).
+- Using IPv6 ([::] instead of localhost).
+- Using Alternate Encodings (0x7F000001 for 127.0.0.1).
+
 📌 Day 12: Exploiting SSRF in GraphQL APIs
 
-How GraphQL APIs expose SSRF vulnerabilities.
-Learn query-based SSRF attacks on GraphQL endpoints.
+- How GraphQL APIs expose SSRF vulnerabilities.
+- Learn query-based SSRF attacks on GraphQL endpoints.
+
 📌 Day 13: Exploiting SSRF in PDF Renderers & File Uploads
 
-SSRF in PDF generators (e.g., Puppeteer, wkhtmltopdf).
-SSRF in SVG file parsing (e.g., fetching external resources).
+- SSRF in PDF generators (e.g., Puppeteer, wkhtmltopdf).
+- SSRF in SVG file parsing (e.g., fetching external resources).
+
 📌 Day 14: Review & Bug Bounty Report Analysis
 
-Study top 10 SSRF bug bounty reports.
-Solve CTF challenges related to SSRF.
+- Study top 10 SSRF bug bounty reports.
+- Solve CTF challenges related to SSRF.
+
 🗓️ Week 3: SSRF Automation, API Exploitation & Real-World Targets
+
 🎯 Goal: Automate SSRF detection and exploit real-world web applications.
 
 📌 Day 15: Automating SSRF Scanning
 
-Use ffuf & Burp Suite Intruder to fuzz for SSRF.
-Learn GoBuster & ParamSpider to find hidden parameters.
+- Use ffuf & Burp Suite Intruder to fuzz for SSRF.
+- Learn GoBuster & ParamSpider to find hidden parameters.
+
 📌 Day 16: Advanced API-Based SSRF
 
-Learn SSRF in RESTful APIs (e.g., API fetching external URLs).
-Find misconfigured reverse proxies & API gateways.
+- Learn SSRF in RESTful APIs (e.g., API fetching external URLs).
+- Find misconfigured reverse proxies & API gateways.
+
 📌 Day 17: SSRF in Microservices & Serverless Apps
 
-Exploiting SSRF in Docker/Kubernetes environments.
-Learn how Lambda & serverless functions are vulnerable to SSRF.
+- Exploiting SSRF in Docker/Kubernetes environments.
+- Learn how Lambda & serverless functions are vulnerable to SSRF.
+
 📌 Day 18: SSRF in CDN & Image Processing Services
 
-How Image Proxy services can lead to SSRF.
-Exploiting Content Delivery Networks (CDNs) for SSRF.
+- How Image Proxy services can lead to SSRF.
+- Exploiting Content Delivery Networks (CDNs) for SSRF.
+
 📌 Day 19: Real-World Testing (Bug Bounty Hunting)
 
-Pick 3 bug bounty programs (e.g., Uber, PayPal, Tesla).
-Find and analyze parameters handling URLs.
+- Pick 3 bug bounty programs (e.g., Uber, PayPal, Tesla).
+- Find and analyze parameters handling URLs.
+
 📌 Day 20: Review & Automation
 
-Write your own SSRF detection script (Python/Bash).
-Use custom wordlists to fuzz SSRF vulnerabilities.
+- Write your own SSRF detection script (Python/Bash).
+- Use custom wordlists to fuzz SSRF vulnerabilities.
+
 📌 Day 21: CTF & Live Bug Hunting
 
-Solve Hack The Box & TryHackMe SSRF challenges.
-Start hunting SSRF bugs in bug bounty programs.
+- Solve Hack The Box & TryHackMe SSRF challenges.
+- Start hunting SSRF bugs in bug bounty programs.
+
 🗓️ Week 4: Mastering SSRF & Advanced Real-World Exploitation
+
 🎯 Goal: Finalize expertise, submit bug bounty reports, and automate findings.
 
 📌 Day 22: Finding Zero-Day SSRF
 
-Identify undocumented API endpoints for SSRF.
-Learn SSRF chaining (e.g., SSRF → XSS → RCE).
+- Identify undocumented API endpoints for SSRF.
+- Learn SSRF chaining (e.g., SSRF → XSS → RCE).
+
 📌 Day 23: Hunting SSRF in Private Bug Bounty Programs
 
-Focus on fintech, cloud services, and SaaS platforms.
-Read private bug bounty reports on HackerOne & Bugcrowd.
+- Focus on fintech, cloud services, and SaaS platforms.
+- Read private bug bounty reports on HackerOne & Bugcrowd.
+
 📌 Day 24: Writing High-Quality Bug Reports
 
-Learn how to write impactful bug bounty reports.
-Include PoC videos, payloads, and mitigation suggestions.
+- Learn how to write impactful bug bounty reports.
+- Include PoC videos, payloads, and mitigation suggestions.
+
 📌 Day 25: Bounty Hunting & Real-World Exploitation
 
-Target SSRF in cloud services like AWS, GCP, and Azure.
-Scan API endpoints in real-world applications.
+- Target SSRF in cloud services like AWS, GCP, and Azure.
+- Scan API endpoints in real-world applications.
+
 📌 Day 26: Creating Custom SSRF Payloads
 
-Build custom SSRF payloads for different applications.
-Experiment with different URL schemes & encodings.
+- Build custom SSRF payloads for different applications.
+- Experiment with different URL schemes & encodings.
+
 📌 Day 27: Final Testing & Automation
 
-Refine your SSRF testing methodology.
-Automate mass scanning for SSRF vulnerabilities.
+- Refine your SSRF testing methodology.
+- Automate mass scanning for SSRF vulnerabilities.
+
 📌 Day 28 - 30: Live Bug Hunting & Report Submission
 
-Spend the last 3 days exclusively hunting real-world SSRF bugs.
-Submit at least one bug bounty report.
+- Spend the last 3 days exclusively hunting real-world SSRF bugs.
+- Submit at least one bug bounty report.
+
 🎯 Final Outcome
+
 By the end of 30 days, you’ll be able to:
-✅ Find & exploit SSRF vulnerabilities in modern web apps.
-✅ Bypass SSRF filters & exploit cloud-based SSRF.
-✅ Automate SSRF scanning for bug bounty hunting.
-✅ Submit high-quality reports & earn bounties.
+- ✅ Find & exploit SSRF vulnerabilities in modern web apps.
+- ✅ Bypass SSRF filters & exploit cloud-based SSRF.
+- ✅ Automate SSRF scanning for bug bounty hunting.
+- ✅ Submit high-quality reports & earn bounties.
