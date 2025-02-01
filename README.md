@@ -8,60 +8,51 @@ Why SSRF?
 - ✅ Growing Attack Surface: With modern cloud and microservices, SSRF is becoming more common but remains underrated.
 
 SSRF Bug Bounty Real-World Examples
-1️⃣ Uber - $10,000+ Payout: Found SSRF that accessed internal services and AWS metadata.
-2️⃣ Facebook - $40,000 Payout: Exploited GraphQL API SSRF to access internal infrastructure.
-3️⃣ Tesla - $15,000 Payout: SSRF allowed attackers to scan internal services.
+- 1️⃣ Uber - $10,000+ Payout: Found SSRF that accessed internal services and AWS metadata.
+- 2️⃣ Facebook - $40,000 Payout: Exploited GraphQL API SSRF to access internal infrastructure.
+- 3️⃣ Tesla - $15,000 Payout: SSRF allowed attackers to scan internal services.
 
 How to Master SSRF?
-🔹 Learn Basic SSRF: Test different URL payloads (http://localhost, file://, dict://, gopher://, ftp://, etc.).
-🔹 Master Blind SSRF: Trigger out-of-band (OOB) interactions using Burp Collaborator, interact.sh, or requestbin.
-🔹 Exploit Cloud Metadata Services: AWS (169.254.169.254), GCP, and Azure APIs.
-🔹 Target GraphQL, APIs, and PDF Renderers: Many modern web apps have SSRF-prone APIs.
-🔹 Automate SSRF Testing: Use Burp Suite, ffuf, and custom scripts to fuzz URLs.
-
-Would you like me to create a structured learning path for mastering SSRF in 30 days? 🚀
-
-
-
-
-
-
-
-You said:
-create structured learning path for ssrf in 30 days??
-ChatGPT said:
-ChatGPT
-Here’s a structured 30-day learning plan to master Server-Side Request Forgery (SSRF) for bug bounty and penetration testing. 🚀
+- 🔹 Learn Basic SSRF: Test different URL payloads (http://localhost, file://, dict://, gopher://, ftp://, etc.).
+- 🔹 Master Blind SSRF: Trigger out-of-band (OOB) interactions using Burp Collaborator, interact.sh, or requestbin.
+- 🔹 Exploit Cloud Metadata Services: AWS (169.254.169.254), GCP, and Azure APIs.
+- 🔹 Target GraphQL, APIs, and PDF Renderers: Many modern web apps have SSRF-prone APIs.
+- 🔹 Automate SSRF Testing: Use Burp Suite, ffuf, and custom scripts to fuzz URLs.
 
 🗓️ Week 1: Fundamentals & Basic Exploitation
+
 🎯 Goal: Understand the basics of SSRF, attack vectors, and simple exploitation.
 
 📌 Day 1: Introduction to SSRF
 
-Read OWASP SSRF documentation.
-Understand how SSRF differs from CSRF and XSS.
-Learn about internal vs. external SSRF.
+- Read OWASP SSRF documentation.
+- Understand how SSRF differs from CSRF and XSS.
+- Learn about internal vs. external SSRF.
+
 📌 Day 2: Identifying SSRF Vulnerabilities
 
-Learn common SSRF sources:
-File upload functionality
-Image/URL fetching (avatar upload, PDF generation)
-API requests that accept user-supplied URLs
-GraphQL endpoints
-Study bug bounty write-ups on SSRF (HackerOne, Bugcrowd).
+- Learn common SSRF sources:
+- File upload functionality
+- Image/URL fetching (avatar upload, PDF generation)
+- API requests that accept user-supplied URLs
+- GraphQL endpoints
+- Study bug bounty write-ups on SSRF (HackerOne, Bugcrowd).
+
 📌 Day 3: Exploiting Basic SSRF
 
-Set up DVWA and test the SSRF module.
-Try requesting internal services using http://127.0.0.1, http://localhost, etc.
-Learn common SSRF payloads (file://, dict://, ftp://, gopher://).
+- Set up DVWA and test the SSRF module.
+- Try requesting internal services using http://127.0.0.1, http://localhost, etc.
+- Learn common SSRF payloads (file://, dict://, ftp://, gopher://).
+
 📌 Day 4: Hands-on Labs
 
-TryHackMe SSRF Challenge.
-Hack The Box (HTB Academy SSRF Lab).
+- TryHackMe SSRF Challenge.
+- Hack The Box (HTB Academy SSRF Lab).
+
 📌 Day 5: Testing SSRF on Web Applications
 
-Set up OWASP Juice Shop and exploit SSRF in image upload & URL fetching.
-Learn how to bypass URL filtering (e.g., using @, encoding techniques).
+- Set up OWASP Juice Shop and exploit SSRF in image upload & URL fetching.
+- Learn how to bypass URL filtering (e.g., using @, encoding techniques).
 
 📌 Day 6: Automating Basic SSRF Attacks
 
