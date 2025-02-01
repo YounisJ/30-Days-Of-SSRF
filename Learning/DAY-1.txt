@@ -11,3 +11,20 @@ IMPACTS:
 Internal network scanning (port scanning)
 Remote code execution (RCE)
 Application level DDOS attack
+
+2 Types of SSRF:
+
+1- Reguler / In Band : Getting Response of payload from site
+2- Blind / Out Of Band : No Response of Payload
+
+How to hunt SSRF ?
+Step 1 - find request containing Hostname, IP, full url
+Step 2 - Change that parameter value to a malicious payload
+Step 3 - Analyse the response
+
+how to bypass common mechanism of preventing SSRF
+Method 1 - Blacklisting using reguler expression or keyword
+          a - Bypassing : if 127.0.0.1 is blacklisted you can convert it into octal or binary form and server will never identify
+          b - DNS Rebinding
+          c - HTTP Redirection
+          d - Exploiting URL Parser
