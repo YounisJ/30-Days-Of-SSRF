@@ -55,12 +55,33 @@ GET /api/lookup?url=http://example.com
 Risk: Attackers could provide a malicious internal URL (e.g., http://localhost:8080/internal-api) to gain unauthorized access to internal services.
 
 _________________________________________________________________________________________________________
-•  6- Cloud Metadata Service
+•  6- Cloud Metadata Service: Description: Cloud services (AWS, Google Cloud, etc.) offer metadata services that return sensitive information like instance IDs, credentials, etc. SSRF can be exploited if the server accesses these metadata URLs without validation.
+
+Example:
+Fetching metadata from 169.254.169.254 (AWS, GCP, etc.) can expose instance metadata.
+
+GET http://169.254.169.254/latest/meta-data/
+
+Risk: Attackers can gain access to cloud metadata, potentially leaking API keys, instance data, or even credentials.
 
 _________________________________________________________________________________________________________
-•  7- Internal Services Accessed via HTTP Requests
+•  7- Internal Services Accessed via HTTP Requests: Description: Services running on internal servers (e.g., databases, admin panels) that are accessible via HTTP may be vulnerable to SSRF if the server is configured to make HTTP requests.
+
+Example:
+A service might make requests to http://localhost/admin or http://127.0.0.1/secret.
+
+GET /internal-service
+
+Risk: Attackers can exploit internal services that are not properly protected.
 
 _________________________________________________________________________________________________________
 
-•  8- DNS Resolution Services
+•  8- DNS Resolution Services: Description: Some applications resolve domain names using DNS requests. If the server is configured to resolve untrusted user-provided URLs, SSRF can be used to force DNS lookups to internal IP addresses.
+
+Example:
+A DNS lookup service that resolves user-supplied domains:
+
+GET /dns?url=internal.com
+
+Risk: Attackers can trick the server into resolving private IPs and internal services, potentially bypassing security.
   
