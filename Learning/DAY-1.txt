@@ -28,3 +28,34 @@ Method 1 - Blacklisting using reguler expression or keyword
           b - DNS Rebinding
           c - HTTP Redirection
           d - Exploiting URL Parser
+
+internal vs. external SSRF
+External SSRF (Out-of-Band SSRF)
+ Target: Websites or services on the public internet
+ Example: Attacking https://example.com but making it fetch data from another external site like https://evil.com.
+ Impact: Can be used to:
+
+Steal data from APIs
+Bypass firewalls
+Exploit misconfigured cloud services (e.g., AWS metadata service)
+ Example Request:
+
+GET /fetch?url=https://evil.com
+Host: victim.com
+
+If victim.com fetches the URL without validation, it may leak sensitive data.
+
+Internal SSRF (Blind SSRF)
+ Target: The internal network of the victim’s server (e.g., localhost, private IPs like 192.168.1.1)
+ Example: Attacking https://example.com but making it access http://localhost/admin
+ Impact: Can be used to:
+
+Access internal admin panels (e.g., http://localhost/admin)
+Scan internal networks
+Attack internal cloud services (e.g., AWS metadata: http://169.254.169.254/latest/meta-data/)
+ Example Request:
+
+GET /fetch?url=http://localhost/admin
+Host: victim.com
+
+If victim.com makes the request without restrictions, an attacker may gain access to internal systems.
