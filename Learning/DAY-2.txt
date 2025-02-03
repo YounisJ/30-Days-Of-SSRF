@@ -87,4 +87,17 @@ Risk: Attackers can trick the server into resolving private IPs and internal ser
   
 _________________________________________________________________________________________________________
 Exploit SSRF Via File Upload :
+Consider we have request:
 
+get /download.php?pdf_path=http://pdf.com/abc.pdf
+host : books.com
+
+here a web app books.com is sending request to another website to access a books
+
+Now in order to exploit we are going to access their file server from this request
+let's see how...
+
+get /download.php?pdf_path=file:///any_Particuler_folder
+host : books.com
+
+the "fil:///" protocol is used to access the files present in a machine in this case we are giving the server a path for pdf but trick is its not pdf path
