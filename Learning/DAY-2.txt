@@ -85,3 +85,6 @@ GET /dns?url=internal.com
 
 Risk: Attackers can trick the server into resolving private IPs and internal services, potentially bypassing security.
   
+_________________________________________________________________________________________________________
+Exploit SSRF Via File Upload :
+
