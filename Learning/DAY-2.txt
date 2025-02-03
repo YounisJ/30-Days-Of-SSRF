@@ -100,4 +100,4 @@ let's see how...
 get /download.php?pdf_path=file:///any_Particuler_folder
 host : books.com
 
-the "fil:///" protocol is used to access the files present in a machine in this case we are giving the server a path for pdf but trick is its not pdf path
+the "file:///" protocol is used to access the files present in a machine in this case we are giving the server a path for pdf but trick is its not pdf path
