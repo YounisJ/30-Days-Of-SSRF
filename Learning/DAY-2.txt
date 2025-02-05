@@ -158,3 +158,5 @@ or use ffuf:
 ffuf -u https://target.com/FUZZ -w wordlist.txt
 
 _________________________________________________________________________________________________________
+
+https://github.com/reddelexc/hackerone-reports/blob/master/tops_by_bug_type/TOPSSRF.md
