@@ -156,3 +156,5 @@ gobuster dir -u https://target.com -w wordlist.txt -x php,html,json
 
 or use ffuf:
 ffuf -u https://target.com/FUZZ -w wordlist.txt
+
+_________________________________________________________________________________________________________
