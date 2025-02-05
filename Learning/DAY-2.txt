@@ -149,7 +149,6 @@ Most GraphQL implementations expose an endpoint like:
 /playground
 /graphiql
 
-
 2️⃣ Discovering GraphQL Endpoints
 
 Use directory fuzzing to detect GraphQL endpoints:
