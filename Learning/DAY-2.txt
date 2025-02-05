@@ -133,3 +133,26 @@ Azure: http://169.254.169.254/metadata/instance?api-version=2021-02-01
 
 _________________________________________________________________________________________________________
 
+GraphQL Endpoints & Security Testing
+📌 What is GraphQL?
+GraphQL is an API query language that allows clients to request only the data they need, making it flexible and efficient. Unlike REST, where you get fixed responses from endpoints (/users, /posts), GraphQL lets you request multiple resources in a single query.
+
+🔎 How to Find GraphQL Endpoints?
+
+1️⃣ Common GraphQL Endpoints
+Most GraphQL implementations expose an endpoint like:
+
+/graphql
+/api/graphql
+/graphql/console
+/v1/graphql
+/playground
+/graphiql
+
+2️⃣ Discovering GraphQL Endpoints
+
+Use directory fuzzing to detect GraphQL endpoints:
+gobuster dir -u https://target.com -w wordlist.txt -x php,html,json
+
+or use ffuf:
+ffuf -u https://target.com/FUZZ -w wordlist.txt
