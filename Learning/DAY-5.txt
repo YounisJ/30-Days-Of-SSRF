@@ -4,7 +4,8 @@ Using Burp Suite Collaborater to find Out of band (Blind) SSRF
 2- Go to the burp Collaborater and copy the payload by clicking "Copy to clipboard"
 3- Confirm the request which directly doesnt sends the response
 4- Find out the vulnerable parameter which you think could be vulnerable like "Reffer: http://..."
-5- Paste the payload into the parameter
+5- Paste the payload into the parameter "Reffer: http://payload_here..."
 5- Send the request
 6- Check the interaction in Burp Collaborater
 7- If theres and interaction to the Collaborater it means the parameter is vulnerable to SSRF
+
