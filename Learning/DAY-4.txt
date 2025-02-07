@@ -16,6 +16,5 @@ THM Room for SSRF
 https://tryhackme.com/room/ssrfhr
 
 HTB Lab for SSRF
-
-
+https://academy.hackthebox.com/course/preview/server-side-attacks
 
