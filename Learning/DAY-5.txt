@@ -10,3 +10,4 @@ Using Burp Suite Collaborater to find Out of band (Blind) SSRF
 7- If theres and interaction to the Collaborater it means the parameter is vulnerable to SSRF
 
 
+
