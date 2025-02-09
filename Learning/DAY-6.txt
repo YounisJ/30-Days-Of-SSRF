@@ -1,2 +1,127 @@
 Bypassing url Filtering:
 
+🔥 1. Using @ in URLs (User Info Bypass)
+Many filters check only the main domain, but using @ allows browsers to treat the last part as the real domain.
+Example
+https://blockedsite.com@yourdomain.com
+
+🔥 2. Encoding Techniques (Bypassing String-Based Filters)
+Many filters look for blacklisted words like "http", "ftp", or specific domains. Encoding can obfuscate the URL.
+  
+2.1 Hex Encoding
+   Convert parts of the URL into hexadecimal.
+Example
+
+Original:
+https://example.com
+Hex Encoded:
+https://%65%78%61%6d%70%6c%65%2e%63%6f%6d
+
+2.2 URL Encoding
+Replace characters with %xx format.
+
+Example
+https://blockedsite.com -> https://%62%6c%6f%63%6b%65%64%73%69%74%65%2e%63%6f%6d
+OR Encode only certain parts:
+https://blocked.com/script.php?file=/etc/passwd
+➡️ https://blocked.com/script.php?file=%2Fetc%2Fpasswd
+
+2.3 Double URL Encoding
+Some filters decode once but fail to check double encoding.
+
+Example
+/etc/passwd -> %252Fetc%252Fpasswd
+(First %2F becomes /, then %25 decodes into %)
+
+2.4 Base64 Encoding
+Some applications allow Base64-encoded URLs.
+
+Example
+Original: https://example.com
+Base64: aHR0cHM6Ly9leGFtcGxlLmNvbQ==
+➡️ If the server accepts Base64 URLs:
+https://example.com/?redirect=aHR0cHM6Ly9ldmlsLmNvbQ==
+
+
+🔥 3. Using Alternative IP Notations
+Some filters block domains but don’t check IP addresses.
+
+3.1 Decimal IP
+Convert the IP into a decimal number.
+
+Example
+Google’s IP:
+216.58.217.46
+
+Decimal:
+https://3627734822
+
+➡️ It resolves back to https://google.com.
+
+3.2 Dotted Octal Notation
+Convert the IP into octal.
+
+Example
+https://0340.0072.0331.0056
+
+3.3 Dotted Hexadecimal Notation
+Convert IP to hexadecimal.
+
+Example
+https://0xD8.0x3A.0xD9.0x2E
+
+🔥 4. Adding Redundant Slashes (//)
+Some filters don’t handle extra slashes properly.
+
+Example
+https://blocked.com/../../etc/passwd
+https:////blocked.com
+➡️ Sometimes, this tricks URL sanitizers.
+
+🔥 5. Using Different Protocols
+If http:// is blocked, try alternative protocols:
+
+Protocol	Example
+FTP	      ftp://example.com
+Gopher	  gopher://example.com
+File	    file:///etc/passwd
+Data URI	data:text/html;base64,...
+
+🔥 6. Spoofing with # Fragment
+Everything after # is ignored by the server.
+
+Example
+https://safe.com#https://evil.com
+➡️ Some filters fail to remove #, allowing bypasses.
+
+🔥 7. Using IPv6 Address Notation
+Some web filters don’t process IPv6 correctly.
+
+Example
+http://[::ffff:216.58.217.46]/
+➡️ Works for https://google.com if IPv6 is supported.
+
+🔥 8. Registering Lookalike Domains
+If a domain is strictly blocked, register a similar one:
+
+goog1e.com instead of google.com
+facebo0k.com instead of facebook.com
+If filters don’t block wildcard domains, try:
+
+blocked.com.evil.com
+➡️ Some systems only check blocked.com and allow subdomains.
+
+🔥 9. Open Redirects
+If a website allows open redirections, use them:
+
+Example
+https://trusted.com/redirect?url=https://evil.com
+➡️ Some filters only allow trusted.com, but it redirects elsewhere.
+
+🔥 10. Host Header Injection
+Some servers accept Host headers for virtual hosting.
+
+Example
+GET / HTTP/1.1
+Host: evil.com
+➡️ If the backend trusts the host, it may allow bypassing.
