@@ -13,6 +13,7 @@
 - 2️⃣ Facebook - $40,000 Payout: Exploited GraphQL API SSRF to access internal infrastructure.
 - 3️⃣ Tesla - $15,000 Payout: SSRF allowed attackers to scan internal services.
 
+
 **How to Master SSRF?**
 - 🔹 Learn Basic SSRF: Test different URL payloads (http://localhost, file://, dict://, gopher://, ftp://, etc.).
 - 🔹 Master Blind SSRF: Trigger out-of-band (OOB) interactions using Burp Collaborator, interact.sh, or requestbin.
