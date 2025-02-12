@@ -9,6 +9,7 @@
 - ✅ Cloud-Specific SSRF: AWS metadata SSRF (stealing AWS credentials via 169.254.169.254) is highly critical and very rare.
 - ✅ Growing Attack Surface: With modern cloud and microservices, SSRF is becoming more common but remains underrated.
 
+
 **SSRF Bug Bounty Real-World Examples**
 - 1️⃣ Uber - $10,000+ Payout: Found SSRF that accessed internal services and AWS metadata.
 - 2️⃣ Facebook - $40,000 Payout: Exploited GraphQL API SSRF to access internal infrastructure.
