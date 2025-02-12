@@ -2,6 +2,7 @@
 
 **Why SSRF?**
 
+
 - ✅ High Impact: Can lead to internal network access, data exfiltration, or even Remote Code Execution (RCE) in cloud environments.
 - ✅ Difficult to Detect: Many security scanners miss SSRF, making it a gold mine for manual testers.
 - ✅ Big Bounty Rewards: SSRF often gets payouts between $5,000 - $50,000+ depending on impact (especially in AWS, GCP, and Azure environments).
