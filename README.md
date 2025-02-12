@@ -32,7 +32,6 @@
 
 **📌 Day 2: Identifying SSRF Vulnerabilities**
 
-
 - Learn common SSRF sources:
 - File upload functionality
 - Image/URL fetching (avatar upload, PDF generation)
